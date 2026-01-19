@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNICOLLAB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- PANTALLA: LOGIN -->
+        <section id="login-screen" class="screen active">
+            <div class="login-content">
+                <div class="logo-container">
+                    <div class="logo-icon">U</div>
+                    <h1>UNICOLLAB</h1>
+                    <p>Conecta, Colabora, Crea.</p>
+                </div>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="email">Correo Institucional</label>
+                        <input type="email" id="email" placeholder="estudiante@uni.edu" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Ingresar</button>
+                    <p class="forgot-password">¿Olvidaste tu contraseña?</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- PANTALLA: DASHBOARD -->
+        <section id="dashboard-screen" class="screen">
+            <header class="main-header">
+                <div class="header-text">
+                    <h2>Hola, Alex 👋</h2>
+                    <p>Tus grupos académicos</p>
+                </div>
+                <div class="user-avatar-small">A</div>
+            </header>
+
+            <div class="groups-list">
+                <!-- Grupo 1 -->
+                <div class="group-card" onclick="openChat('Taller de Aplicaciones')">
+                    <div class="group-icon color-1">TA</div>
+                    <div class="group-info">
+                        <h3>Taller de Aplicaciones</h3>
+                        <p>Último mensaje: ¿A qué hora nos...?</p>
+                    </div>
+                    <div class="group-time">10:30</div>
+                </div>
+
+                <!-- Grupo 2 -->
+                <div class="group-card" onclick="openChat('Proyecto Final')">
+                    <div class="group-icon color-2">PF</div>
+                    <div class="group-info">
+                        <h3>Proyecto Final</h3>
+                        <p>Archivo adjunto: Entrega.pdf</p>
+                    </div>
+                    <div class="group-time">Ayer</div>
+                </div>
+
+                 <!-- Grupo 3 -->
+                 <div class="group-card" onclick="openChat('Matemáticas III')">
+                    <div class="group-icon color-3">M3</div>
+                    <div class="group-info">
+                        <h3>Matemáticas III</h3>
+                        <p>Alex: Gracias!</p>
+                    </div>
+                    <div class="group-time">Ayer</div>
+                </div>
+            </div>
+
+            <button class="fab-create" title="Crear Grupo">
+                +
+            </button>
+        </section>
+
+        <!-- PANTALLA: CHAT -->
+        <section id="chat-screen" class="screen">
+            <header class="chat-header">
+                <button class="btn-back" onclick="showScreen('dashboard-screen')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <div class="chat-header-info">
+                    <h3 id="chat-title">Nombre del Grupo</h3>
+                    <p>4 miembros activos</p>
+                </div>
+                <div class="chat-header-actions">
+                    <div class="more-options">•••</div>
+                </div>
+            </header>
+
+            <div class="chat-messages" id="chat-messages">
+                <!-- Mensajes simulados -->
+                <div class="message received">
+                    <div class="message-avatar">JS</div>
+                    <div class="message-bubble">
+                        <div class="message-sender">Juan Soto</div>
+                        <p>Hola a todos! ¿Cuándo nos reunimos?</p>
+                        <span class="message-time">10:28</span>
+                    </div>
+                </div>
+
+                <div class="message sent">
+                    <div class="message-bubble">
+                        <p>Yo puedo mañana después de clases.</p>
+                        <span class="message-time">10:29</span>
+                    </div>
+                </div>
+
+                <div class="message received">
+                    <div class="message-avatar">ML</div>
+                    <div class="message-bubble">
+                        <div class="message-sender">Maria Lopez</div>
+                        <p>Perfecto, nos vemos en la biblioteca.</p>
+                        <span class="message-time">10:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <button class="btn-attach">+</button>
+                <input type="text" id="message-input" placeholder="Escribe un mensaje...">
+                <button class="btn-send" onclick="sendMessage()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
